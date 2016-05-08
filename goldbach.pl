@@ -1,5 +1,5 @@
 divisible(X,Y) :- 0 is mod(X, Y), !.
-divisible(X,Y) :- X > Y*2, divisible(X, Y+1).
+divisible(X,Y) :- X >= Y*2, divisible(X, Y+1).
 
 isPrime(2).
 
