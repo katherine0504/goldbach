@@ -2,7 +2,6 @@ divisible(X,Y) :- 0 is mod(X, Y), !.
 divisible(X,Y) :- X > Y*2, divisible(X, Y+1).
 
 isPrime(2).
-isPrime(3).
 
 isPrime(X) :- X < 2, !, false.
 isPrime(X) :- not(divisible(X, 2)).
@@ -15,7 +14,7 @@ findResult(A, B) :- X is A, Y is B, write(X), write(' '), write(Y), nl, findResu
 isEven(X) :- 0 is mod(X, 2).
 
 goldbach(X) :- not(isEven(X)), !, write('invalid input.'), nl.
-goldbach(X) :- X =:= 2, !, write('invaild input. '), nl.
+goldbach(X) :- X =< 2, !, write('invaild input. '), nl.
 goldbach(X) :- not(findResult(2, X-2)).
 
 main :- write('Input : '), read(X), write('Output : '), nl, goldbach(X), halt.
